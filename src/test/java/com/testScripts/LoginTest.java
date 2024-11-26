@@ -39,10 +39,9 @@ public class LoginTest extends Base {
 	public void validPasswordloginpage() throws InterruptedException {
 	    try {
 	        LoginPage login = new LoginPage(driver);
-	        Thread.sleep(4000);
-
+	        Thread.sleep(2000);
 	        login.getSignincta().click();
-	        
+	        Thread.sleep(2000);
 	        //verify if email & password field is enabled or not
 	        boolean isEmailEnabled = login.getValidEmail().isEnabled();
 	        Assert.assertTrue(isEmailEnabled, "Email field is not enabled.");

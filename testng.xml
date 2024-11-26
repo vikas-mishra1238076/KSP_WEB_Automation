@@ -3,8 +3,13 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <class name="com.testScripts.LoginTest"/>
+     <class name="com.testScripts.LoginTest"/>
+       <class name="com.testScripts.CatchUpTest"/>
+     <!-- 
+      <class name="com.testScripts.KidsTest"/>
+    
+      <class name="com.testScripts.VODTest"/>
+     -->
     </classes>
   </test> <!-- Test -->
-</suite> <!-- Suite -->                   
-
+</suite> <!-- Suite -->
