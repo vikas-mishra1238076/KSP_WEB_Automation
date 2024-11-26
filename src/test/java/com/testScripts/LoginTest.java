@@ -16,7 +16,7 @@ public class LoginTest extends Base {
 	@BeforeMethod
 	public void browsersetup() throws InterruptedException {
 		loadPropertiesFile();
-		driver = initializeAndOpenBrowser(prop.getProperty("browse"));
+		driver = initializeAndOpenBrowser(prop.getProperty("browser"));
 	}
 	
 	

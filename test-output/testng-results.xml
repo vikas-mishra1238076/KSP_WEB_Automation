@@ -1,107 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="0" skipped="1">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-11-26T11:58:06 IST" name="Suite" finished-at="2024-11-26T11:58:07 IST" duration-ms="810">
+  <suite started-at="2024-11-26T12:14:09 IST" name="Suite" finished-at="2024-11-26T12:14:43 IST" duration-ms="34180">
     <groups>
     </groups>
-    <test started-at="2024-11-26T11:58:06 IST" name="Test" finished-at="2024-11-26T11:58:07 IST" duration-ms="810">
+    <test started-at="2024-11-26T12:14:09 IST" name="Test" finished-at="2024-11-26T12:14:43 IST" duration-ms="34180">
       <class name="com.testScripts.LoginTest">
-        <test-method is-config="true" signature="browsersetup()[pri:0, instance:com.testScripts.LoginTest@6a2f6f80]" started-at="2024-11-26T11:58:06 IST" name="browsersetup" finished-at="2024-11-26T11:58:07 IST" duration-ms="740" status="FAIL">
-          <exception class="java.lang.NullPointerException">
-            <message>
-              <![CDATA[Cannot invoke "String.equalsIgnoreCase(String)" because "browserName" is null]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException: Cannot invoke "String.equalsIgnoreCase(String)" because "browserName" is null
-at com.genericmethods.Base.initializeAndOpenBrowser(Base.java:61)
-at com.testScripts.LoginTest.browsersetup(LoginTest.java:19)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
-at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:833)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:600)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-at org.testng.TestRunner.privateRun(TestRunner.java:739)
-at org.testng.TestRunner.run(TestRunner.java:614)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+        <test-method is-config="true" signature="browsersetup()[pri:0, instance:com.testScripts.LoginTest@1190200a]" started-at="2024-11-26T12:14:09 IST" name="browsersetup" finished-at="2024-11-26T12:14:17 IST" duration-ms="8481" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browsersetup -->
-        <test-method is-config="true" signature="browsersetup1()[pri:0, instance:com.testScripts.LoginTest@6a2f6f80]" started-at="2024-11-26T11:58:07 IST" name="browsersetup1" finished-at="2024-11-26T11:58:07 IST" duration-ms="0" status="SKIP">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browsersetup1 -->
-        <test-method signature="validPasswordloginpage()[pri:1, instance:com.testScripts.LoginTest@6a2f6f80]" started-at="2024-11-26T11:58:07 IST" name="validPasswordloginpage" finished-at="2024-11-26T11:58:07 IST" duration-ms="0" status="SKIP">
-          <exception class="java.lang.NullPointerException">
-            <message>
-              <![CDATA[Cannot invoke "String.equalsIgnoreCase(String)" because "browserName" is null]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException: Cannot invoke "String.equalsIgnoreCase(String)" because "browserName" is null
-at com.genericmethods.Base.initializeAndOpenBrowser(Base.java:61)
-at com.testScripts.LoginTest.browsersetup(LoginTest.java:19)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
-at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:833)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:600)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-at org.testng.TestRunner.privateRun(TestRunner.java:739)
-at org.testng.TestRunner.run(TestRunner.java:614)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+        <test-method signature="validPasswordloginpage()[pri:1, instance:com.testScripts.LoginTest@1190200a]" started-at="2024-11-26T12:14:17 IST" name="validPasswordloginpage" finished-at="2024-11-26T12:14:40 IST" duration-ms="22531" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validPasswordloginpage -->
-        <test-method is-config="true" signature="quitt()[pri:0, instance:com.testScripts.LoginTest@6a2f6f80]" started-at="2024-11-26T11:58:07 IST" name="quitt" finished-at="2024-11-26T11:58:07 IST" duration-ms="0" status="SKIP">
+        <test-method is-config="true" signature="quitt()[pri:0, instance:com.testScripts.LoginTest@1190200a]" started-at="2024-11-26T12:14:40 IST" name="quitt" finished-at="2024-11-26T12:14:43 IST" duration-ms="3011" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quitt -->
