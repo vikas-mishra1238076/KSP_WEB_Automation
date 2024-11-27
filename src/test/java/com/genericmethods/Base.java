@@ -31,7 +31,11 @@ public class Base {
     public Properties prop;
     public Properties dataProp;
 
-    public String path = "C:\\Users\\TECQNIO\\git\\KSP_WEB_Automation\\com.properties";
+    //public String path = "C:\\Users\\TECQNIO\\git\\KSP_WEB_Automation\\com.properties";
+    
+    
+    
+    public String path = "C:\\Users\\vikas\\Desktop\\KSP_WEB_Automation\\com.properties";
 
     // Variables to track test results
     private int passedTests = 0;

@@ -3,17 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Tests.SignInTest">
+      <class name="com.testScripts.HomePageTest">
         <methods>
-          <include name="testPasswordLength"/>
-          <include name="testFirstNameRequired"/>
-          <include name="testLastNameRequired"/>
-          <include name="testSuccessfulSignUp"/>
-          <include name="setup"/>
-          <include name="testEmailRequired"/>
-          <include name="teardown"/>
+          <include name="homeScreenManagement"/>
         </methods>
-      </class> <!-- Tests.SignInTest -->
+      </class> <!-- com.testScripts.HomePageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

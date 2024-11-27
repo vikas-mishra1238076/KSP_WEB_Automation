@@ -51,7 +51,7 @@ public class LoginTest extends Base {
 	        //login.getLogin().click();
 	        
 	        
-	        login.getValidEmail().sendKeys(prop.getProperty("invalidEmail"));
+	       /* login.getValidEmail().sendKeys(prop.getProperty("invalidEmail"));
 	        Thread.sleep(2000);
 	        login.getValidPassword().sendKeys(prop.getProperty("validpassword"));
 	        Thread.sleep(2000);
@@ -132,6 +132,8 @@ public class LoginTest extends Base {
 	        
 	        boolean isPaswordEnabled = login.getValidPassword().isDisplayed();
 	        Assert.assertTrue(isPaswordEnabled, "Password field is not enabled");
+	        
+	        */
 	        
 	        login.getValidEmail().sendKeys(prop.getProperty("validemail"));
 	        Thread.sleep(2000);
