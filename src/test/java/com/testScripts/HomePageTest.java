@@ -1,172 +1,152 @@
 package com.testScripts;
 
-import Pages.HomePage;
-import Pages.LoginPage;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import java.awt.AWTException;
+import java.time.Duration;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
-public class HomePageTest {
-    private WebDriver driver;
-    private LoginPage loginPage;
-    private HomePage homePage;
+import com.genericmethods.Base;
+import com.objectRepo.HomePage;
 
-    @BeforeMethod
-    public void setup() throws InterruptedException {
-        System.out.println("Setting up the test environment...");
-        
-        // Setup Firefox driver using WebDriverManager
-        WebDriverManager.firefoxdriver().setup();
-        driver = new FirefoxDriver();
-        driver.manage().window().maximize();
+public class HomePageTest extends Base {
+	
 
-        // Initialize pages
-        loginPage = new LoginPage(driver);
-        homePage = new HomePage(driver);
+	@Test(priority = 1)
+    public void homeScreenManagement()throws InterruptedException, AWTException {
+    	loadPropertiesFile();
+    	if (prop == null) {
+			throw new NullPointerException("Properties file not loaded successfully.");
+		}
 
-        // Navigate to login page and perform login
-        loginPage.navigateToHomePage();
-        loginPage.initiateLogin();
+   // Initialize HomePage object with WebDriver
+      HomePage  homePage = new HomePage(driver);
+      JavascriptExecutor js = (JavascriptExecutor) driver;
+      WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        // Wait for the sign-in button to be available
-        Thread.sleep(2000);
+      
+      WebElement premiumRailTitle = homePage.getPremiumRailTitle();
+      wait.until(ExpectedConditions.visibilityOf(premiumRailTitle));
 
-        // Enter valid username and password
-        loginPage.enterUsername("vikass2121@gmail.com"); // Replace with a valid email
-        loginPage.enterPassword("Test@123"); // Replace with a valid password
+      // Check if Premium rail title is displayed
+      boolean isPremiumRailDisplayed = premiumRailTitle.isDisplayed();
+      Assert.assertTrue(isPremiumRailDisplayed, "Premium rail title is not displayed.");
+      
+      if (isPremiumRailDisplayed) {
+          System.out.println("Premium rail title is displayed.");
+      } else {
+          System.out.println("Premium rail title is not displayed.");
+      }
+      
+      WebElement sliderLeft = homePage.getSliderLeft();
+      wait.until(ExpectedConditions.elementToBeClickable(sliderLeft));
 
-        // Click login button
-        loginPage.clickLoginButton();
+      // Click the left slider
+      sliderLeft.click();
+      System.out.println("Left slider clicked.");
+      
+      // Check if the Trending Rail is visible after clicking
+      WebElement trendingRail = homePage.getTrendingRailTitle();
+      Assert.assertNotNull(trendingRail, "Trending rail title did not appear after clicking left slider.");
 
-        // Select profile after clicking sign-in
-        loginPage.selectProfile();
+      System.out.println("Trending rail title is displayed.");
+      
+   // Check if the "View All" buttons are present on the homepage
+      int viewAllButtonCount = homePage.getViewAllButtons().size();
+      Assert.assertTrue(viewAllButtonCount > 0, "No 'View All' buttons found.");
 
-        // Wait for profile to load and skip any introductory screens
-        Thread.sleep(3000);
-        homePage.clickSkipButton();
-        System.out.println("Test environment set up complete.");
-    }
+      System.out.println("Found " + viewAllButtonCount + " 'View All' buttons.");
+ 
+   // Wait for the Play button to be clickable
+      WebElement playButton = homePage.getPlayButton();
+      wait.until(ExpectedConditions.elementToBeClickable(playButton));
 
-    @Test
-    public void testHomePageRailsAfterLogin() throws InterruptedException {
-        System.out.println("Starting test for home page rails...");
+      //need to check xpath error!
+      // Click the Play button
+      playButton.click();
+      System.out.println("Play button clicked.");
 
-        // Ensure user is logged in by checking profile icon visibility
-        Assert.assertTrue(homePage.isProfileIconVisible(), "Profile icon is not visible, login failed.");
-        
-        // Scroll and verify presence of all rails
-        homePage.verifyAllRailsPresent();
+      // Check if the play button is still displayed after clicking (this is a placeholder check)
+      Assert.assertTrue(playButton.isDisplayed(), "Play button is not displayed after clicking.");
+      Thread.sleep(3000);
+      
+      WebElement shareButton = homePage.getShareButton();
+      wait.until(ExpectedConditions.elementToBeClickable(shareButton));
 
+      // Click the Share button
+      shareButton.click();
+      System.out.println("Share button clicked.");
 
-        
-        // Log results
-        System.out.println("Test for home page rails completed.");
-    }
+      // Check if Share button is still displayed (you may add more checks based on the actual behavior)
+      Assert.assertTrue(shareButton.isDisplayed(), "Share button is not displayed after clicking.");
+      
+      int bottomLinksCount = homePage.getBottomLinks().size();
+      Assert.assertTrue(bottomLinksCount > 0, "No bottom links found.");
 
-//    @Test
-//   public void testClickAllViewAllButtons() throws InterruptedException {
-//       // Ensure you're on the homepage after logging in
-//       System.out.println("Testing the 'View All' buttons...");
-//
-//       // Click all "View All" buttons present on the homepage
-//       homePage.clickAllViewAllButtons();
-//        
-//        // Add any necessary assertions or further actions here
-//       System.out.println("View All buttons clicked successfully.");
-// 
-//
-//}
-//    
-//    @Test
-//    public void testClickAllBottomLinksAndNavigate() {
-//        // Initialize the HomePage instance
-//        HomePage homePage = new HomePage(driver);
-//
-//        // Call the method to click all the bottom links and handle window switching
-//        homePage.clickAllBottomLinksAndNavigate();
-//    }
-//    
-//    @Test
-//    public void scrollSlowlyToBottomAndBack() {
-//        // Initialize the HomePage instance
-//        HomePage homePage = new HomePage(driver);
-//
-//        // Call the method to click all the bottom links and handle window switching
-//        homePage.scrollSlowlyToBottomAndBack();
-//    }
-//    
-//    
-//    
-//    @Test
-//    public void testScrollAndClickContentOption() throws InterruptedException {
-//        // Call the scrollAndClickContentOption method from HomePage
-//        System.out.println("Testing scroll and click for Daredevil content option...");
-//        homePage.scrollAndClickContentOption("daredevil");  // Scroll until Daredevil div is visible, then click
-//
-//        System.out.println("Testing scroll and click for Add My List content option...");
-//        homePage.scrollAndClickContentOption("addmylist");  // No scroll, just click
-//        
-//        System.out.println("Testing scroll and click for Add My List content option again...");
-//        homePage.scrollAndClickContentOption("addmylist");  // No scroll, just click
-//
-//        System.out.println("Testing scroll and click for Share button content option...");
-//        homePage.scrollAndClickContentOption("share");  // No scroll, just click
-//        
-//        System.out.println("Testing scroll and click for close button content option...");
-//        homePage.scrollAndClickContentOption("closeButton");  // No scroll, just click
-////        
-//        System.out.println("Testing scroll and click for play  button content option...");
-//        homePage.scrollAndClickContentOption("play"); } // No scroll, just click  
-////        
-////        
-////        
-////        
-////    }
-//    
-//    
-//   
-//
-////
-////    @Test
-////    public void testClickContentOption() throws InterruptedException {
-////        // Call the clickContentOptions method directly (without scroll)
-////        System.out.println("Directly clicking the content options...");
-////
-////        // Click the "Daredevil" div
-////        homePage.clickContentOptions("daredevil");
-////        
-////        // Click the "Add My List" button
-////        homePage.clickContentOptions("addmylist");
-////        // Click the "Add My List" button
-////        
-////        homePage.clickContentOptions("addmylist");
-////
-////        // Click the "Share" button
-////        homePage.clickContentOptions("share");
-////        homePage.clickContentOptions("closeButton");
-////        
-////     // Click the "Play" button
-////        homePage.clickContentOptions("play");
-////        
-////        
-////    }
-//
-//    
-//    
-//   
-    
+      System.out.println("Found " + bottomLinksCount + " bottom links.");
+      
+      WebElement daredevilDiv = homePage.getDaredevilDiv();
+      boolean isDaredevilDivDisplayed = daredevilDiv.isDisplayed();
+      Assert.assertTrue(isDaredevilDivDisplayed, "'Daredevil' div is not displayed.");
+
+      if (isDaredevilDivDisplayed) {
+          System.out.println("'Daredevil' div is displayed.");
+      } else {
+          System.out.println("'Daredevil' div is not displayed.");
+      }
+      
+      WebElement closeButton = homePage.getCloseButton();
+      wait.until(ExpectedConditions.elementToBeClickable(closeButton));
+
+      // Click the Close button
+      closeButton.click();
+      System.out.println("Close button clicked.");
+
+      // Check if close button is no longer displayed after clicking
+      Assert.assertFalse(closeButton.isDisplayed(), "Close button is still visible after clicking.");
+ 
+      WebElement profileIcon = homePage.getProfileIcon();
+      wait.until(ExpectedConditions.elementToBeClickable(profileIcon));
+
+      // Click the profile icon
+      profileIcon.click();
+      System.out.println("Profile icon clicked.");
+
+      // Check if the profile icon is displayed (this can be adjusted based on the profile icon's behavior)
+      Assert.assertTrue(profileIcon.isDisplayed(), "Profile icon was not clicked successfully.");
+  
+      boolean isAddMyListEnabled = homePage.getAddMyList().isEnabled();
+      Assert.assertTrue(isAddMyListEnabled, "'Add MyList' button is not enabled.");
+
+      if (isAddMyListEnabled) {
+          System.out.println("'Add MyList' button is enabled and clickable.");
+      } else {
+          System.out.println("'Add MyList' button is not enabled.");
+      }
+	
+	
+	}
+	
+	}
+      
+
+      
+	
+      
+      
+  
+
+	
+  
+  
+      
     
 
-    @AfterMethod
-    public void teardown() {
-        if (driver != null) {
-            System.out.println("Closing the browser...");
-          // driver.quit(); // Close the browser after each test
-        }
-    }
-}
+ 
+
+    
 

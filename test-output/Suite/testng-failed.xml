@@ -3,18 +3,12 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.testScripts.LoginTest">
+      <class name="com.testScripts.SignUpTest">
         <methods>
-          <include name="quitt"/>
-          <include name="browsersetup"/>
-          <include name="validPasswordloginpage"/>
+          <include name="newSignUp"/>
+          <include name="browserSetup"/>
         </methods>
-      </class> <!-- com.testScripts.LoginTest -->
-      <class name="com.testScripts.CatchUpTest">
-        <methods>
-          <include name="newKidsmanagement"/>
-        </methods>
-      </class> <!-- com.testScripts.CatchUpTest -->
+      </class> <!-- com.testScripts.SignUpTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
