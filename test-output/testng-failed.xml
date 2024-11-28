@@ -3,6 +3,13 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
     <classes>
+      <class name="com.testScripts.LoginTest">
+        <methods>
+          <include name="quitt"/>
+          <include name="browsersetup"/>
+          <include name="validPasswordloginpage"/>
+        </methods>
+      </class> <!-- com.testScripts.LoginTest -->
       <class name="com.testScripts.SignUpTest">
         <methods>
           <include name="newSignUp"/>
